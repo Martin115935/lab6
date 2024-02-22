@@ -2,7 +2,37 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
+	
+	//This is the start of my binary seach
+	int a,b,c=-1;
+	a = (low+high)/2;
+	b = numbers[a];
+	if(low>high) {
+		return -1;
+	}
+	
+	if(b < value) {
+		c = search(numbers,a+1,high,value);
+		if(c>-1) {
+			return c;
+		}
+	}
+	if(b > value) {
+		c =search(numbers,low,a-1,value);
+		if(c>-1) {
+			return c;
+		}
+	}
+	
+	if(b == value) {
+		return a;
+	}
+	
+	
+	
+	
 	return -1;
+
 }
 
 void printArray(int numbers[], int sz)
